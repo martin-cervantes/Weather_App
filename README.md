@@ -1,5 +1,5 @@
 # Weather App
-
+The Weather App project is to test the knowledge about asynchronous communication with promises or async/await and when to use them. Using weather API from [openweathermap.org](openweathermap.org)
 
 
 ![screenshot](./Screenshot.png)
