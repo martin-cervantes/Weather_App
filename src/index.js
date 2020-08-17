@@ -1,13 +1,15 @@
+import './css/reset.css';
 import './css/style.css';
-import Logo from './img/logo.png';
 
-const cont = document.createElement('div');
-cont.classList.add('hola');
-cont.innerText = 'Hola';
+import render from './js/render';
+import getForeCast from './js/forecast';
 
-const myLogo = new Image();
-myLogo.src = Logo;
+render(getForeCast(), 'metric');
 
-cont.appendChild(myLogo);
-
-document.body.appendChild(cont);
+window.change = function (value) {
+  if (value) {
+    render(getForeCast('imperial'));
+  } else {
+    render(getForeCast(), 'metric');
+  }
+};
