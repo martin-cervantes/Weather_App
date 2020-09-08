@@ -1,9 +1,10 @@
 import display from './content';
 
-const render = async (data, units = 'imperial') => {
+const render = async (index, data, units = 'imperial') => {
   const myForeCast = await data;
 
   const info = {
+    index: parseInt(index, 10),
     city: myForeCast.name,
     country: myForeCast.sys.country,
     temp: Math.round(myForeCast.main.temp),
