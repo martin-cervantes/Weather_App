@@ -4,18 +4,19 @@ import './css/style.css';
 import render from './js/render';
 import getForeCast from './js/forecast';
 
-const city = ['Mexico,mx', 'Washington', 'Toronto', 'London', 'Paris', 'Barcelona', 'Moscow', 'Beijing', 'Tokyo', 'Sydney'];
+let city = 'Mexico City';
 
-render(0, getForeCast(city[0]), 'metric');
+render(getForeCast(city), 'metric');
 
-window.changeUnits = function (value, index) {
+window.changeUnits = function (value) {
   if (value) {
-    render(index, getForeCast(city[index], 'imperial'));
+    render(getForeCast(city, 'imperial'));
   } else {
-    render(index, getForeCast(city[index]), 'metric');
+    render(getForeCast(city), 'metric');
   }
 };
 
-window.changeCity = function (index) {
-  render(index, getForeCast(city[index]), 'metric');
+window.changeCity = function (value) {
+  city = value;
+  render(getForeCast(city), 'metric');
 };

@@ -1,26 +1,47 @@
 const displayContent = (myForeCast) => {
+  document.body.innerHTML = '';
+
+  const searchContainer = document.createElement('div');
+  searchContainer.id = 'search';
+
+  const txtSearch = document.createElement('input');
+  txtSearch.setAttribute('placeholder', 'City Name');
+  txtSearch.setAttribute('type', 'text');
+  txtSearch.id = 'txtSearch';
+
+  searchContainer.appendChild(txtSearch);
+
+  const btnSearch = document.createElement('button');
+  btnSearch.innerHTML = 'Search <i class="fas fa-search"></i>';
+  btnSearch.setAttribute('onclick', 'window.changeCity(document.getElementById("txtSearch").value)');
+
+  searchContainer.appendChild(btnSearch);
+
+  document.body.appendChild(searchContainer);
+
   const container = document.createElement('div');
   container.style.background = `url("../src/img/${myForeCast.city}.jpg") no-repeat`;
   container.id = 'container';
-  document.body.innerHTML = '';
 
   document.body.appendChild(container);
 
-  const title = document.createElement('select');
+  const title = document.createElement('h1');
   title.id = 'city';
-  title.setAttribute('onclick', 'window.changeCity(this.value)');
+  title.innerText = `${myForeCast.city}, ${myForeCast.country}`;
+  // title.setAttribute('onclick', 'window.changeCity(this.value)');
 
-  const city = ['Mexico City', 'Washington', 'Toronto', 'London', 'Paris', 'Barcelona', 'Moscow', 'Beijing', 'Tokyo', 'Sydney'];
-
-  city.forEach((city, i) => {
-    const option = document.createElement('option');
-    option.innerText = city;
-    option.setAttribute('value', i);
-
-    title.appendChild(option);
-  });
-
-  title.selectedIndex = myForeCast.index;
+  // const city = ['Mexico City', 'Washington', 'Toronto', 'London',
+  // 'Paris', 'Barcelona', 'Moscow', 'Beijing', 'Tokyo', 'Sydney'];
+  //
+  // city.forEach((city, i) => {
+  //   const option = document.createElement('option');
+  //   option.innerText = city;
+  //   option.setAttribute('value', i);
+  //
+  //   title.appendChild(option);
+  // });
+  //
+  // title.selectedIndex = myForeCast.index;
   container.appendChild(title);
 
   const icon = document.createElement('div');
@@ -80,7 +101,7 @@ const displayContent = (myForeCast) => {
   const checkbox = document.createElement('input');
   checkbox.id = 'checkbox';
   checkbox.setAttribute('type', 'checkbox');
-  checkbox.setAttribute('onclick', 'window.changeUnits(this.checked, document.getElementById("city").value)');
+  checkbox.setAttribute('onclick', 'window.changeUnits(this.checked)');
 
   if (myForeCast.units === 'imperial') checkbox.setAttribute('checked', 'true');
 
