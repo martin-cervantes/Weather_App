@@ -6,15 +6,25 @@
   width: 80%;
 }
 
-#container {
+#container1 {
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 2rem 0.5rem;
   width: 80%;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#container {
+  background-color: #f7f7f7;
+  border: solid #dfdfdf 0.3rem;
+  border-radius: 0.5rem;
+  opacity: 0.8;
+  padding: 0.5rem 1rem;
+  width: 12rem;
 }
 
 .icon {

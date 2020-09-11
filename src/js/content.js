@@ -19,25 +19,42 @@ const displayContent = (myForeCast) => {
 
   document.body.appendChild(searchContainer);
 
-  const container = document.createElement('div');
+  const container1 = document.createElement('div');
 
-  const image = new Image();
-  let urlImage = `../src/img/${myForeCast.city}.jpg`;
-  image.src = urlImage;
-  if (image.width === 0) {
-    urlImage = '../src/img/default.jpg';
+  let urlImage = '';
+  switch (myForeCast.city) {
+    case 'Beijing':
+    case 'Guadalajara':
+    case 'London':
+    case 'Mexico City':
+    case 'Monterrey':
+    case 'Moscow':
+    case 'Paris':
+    case 'Puebla':
+    case 'Sydney':
+    case 'Tijuana':
+    case 'Tokyo':
+    case 'Toronto':
+    case 'Washington':
+      urlImage = `../src/img/${myForeCast.city}.jpg`;
+      break;
+    default:
+      urlImage = '../src/img/default.jpg';
   }
 
-  container.style.background = `url("${urlImage}") no-repeat`;
-  container.id = 'container';
-
-  document.body.appendChild(container);
+  container1.style.background = `url("${urlImage}") no-repeat`;
+  container1.id = 'container1';
 
   const title = document.createElement('h1');
   title.id = 'city';
   title.innerText = `${myForeCast.city}, ${myForeCast.country}`;
 
-  container.appendChild(title);
+  container1.appendChild(title);
+
+  document.body.appendChild(container1);
+
+  const container = document.createElement('div');
+  container.id = 'container';
 
   const icon = document.createElement('div');
   icon.classList.add('icon');
@@ -111,6 +128,8 @@ const displayContent = (myForeCast) => {
   change.innerHTML += "<span class='tag'>F&deg;</span>";
 
   container.appendChild(change);
+
+  container1.appendChild(container);
 };
 
 export default displayContent;
