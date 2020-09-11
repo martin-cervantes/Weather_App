@@ -20,7 +20,15 @@ const displayContent = (myForeCast) => {
   document.body.appendChild(searchContainer);
 
   const container = document.createElement('div');
-  container.style.background = `url("../src/img/${myForeCast.city}.jpg") no-repeat`;
+
+  const image = new Image();
+  let urlImage = `../src/img/${myForeCast.city}.jpg`;
+  image.src = urlImage;
+  if (image.width === 0) {
+    urlImage = '../src/img/default.jpg';
+  }
+
+  container.style.background = `url("${urlImage}") no-repeat`;
   container.id = 'container';
 
   document.body.appendChild(container);
@@ -28,20 +36,7 @@ const displayContent = (myForeCast) => {
   const title = document.createElement('h1');
   title.id = 'city';
   title.innerText = `${myForeCast.city}, ${myForeCast.country}`;
-  // title.setAttribute('onclick', 'window.changeCity(this.value)');
 
-  // const city = ['Mexico City', 'Washington', 'Toronto', 'London',
-  // 'Paris', 'Barcelona', 'Moscow', 'Beijing', 'Tokyo', 'Sydney'];
-  //
-  // city.forEach((city, i) => {
-  //   const option = document.createElement('option');
-  //   option.innerText = city;
-  //   option.setAttribute('value', i);
-  //
-  //   title.appendChild(option);
-  // });
-  //
-  // title.selectedIndex = myForeCast.index;
   container.appendChild(title);
 
   const icon = document.createElement('div');
