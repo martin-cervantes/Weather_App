@@ -1,5 +1,5 @@
 # Weather App
-
+The Weather App project is to test the knowledge about asynchronous communication with promises or async/await and when to use them. Using weather API from [openweathermap.org](openweathermap.org)
 
 
 ![screenshot](./Screenshot.png)
@@ -36,7 +36,29 @@ To get a local copy up and running follow these simple steps.
 
 ### Usage
 
-In any browser, open the index.html file.
+Install the dependencies in the local node_modules folder
+
+```sh
+  $ npm install
+```
+
+Bundle JavaScript files for usage in a browser
+
+```sh
+  $ npm run bundle
+```
+
+Calling the watch method triggers the webpack runner, but then watches for changes
+
+```sh
+  $ npm run watch
+```
+
+Use webpack with a development server that provides live reloading. This should be used for development only.
+
+```sh
+  $ npm start
+```
 
 ## :busts_in_silhouette: Authors
 
